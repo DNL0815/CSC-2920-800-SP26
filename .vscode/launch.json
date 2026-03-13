@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-GroupProjectApplication<group_project>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.csc2920.group_project.GroupProjectApplication",
+      "projectName": "group_project",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

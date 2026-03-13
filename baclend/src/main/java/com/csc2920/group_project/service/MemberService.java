@@ -113,6 +113,8 @@ public class MemberService {
 
             memberRepository.save(entity);
         });
+        // To show it has been SYNC
+        System.out.println("Syncing has complete");
     }
 
     // ---------------------------------------------------------
