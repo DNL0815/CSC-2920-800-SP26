@@ -62,15 +62,6 @@ const HomePage = () => {
             <p>No data found in the database.</p>
             <p>Try running the sync command in your terminal:</p>
             <code>curl -X POST http://localhost:8080/api/members/sync</code>
-
-
-
-
-
-
-
-
-
           </div>
         ) : (
           politicians.map((politician) => (
