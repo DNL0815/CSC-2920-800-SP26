@@ -1,0 +1,23 @@
+[33mbc1dfae[m[33m ([m[1;36mHEAD -> [m[1;32mImplmented-DB-to-Frontend[m[33m, [m[1;31morigin/Implmented-DB-to-Frontend[m[33m)[m HEAD@{0}: checkout: moving from main to Implmented-DB-to-Frontend
+[33m63c879c[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m refs/remotes/origin/main@{0}: update by push
+[33m63c879c[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m refs/heads/main@{0}: cherry-pick: Conected DB to frontend to output
+[33m63c879c[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{1}: cherry-pick: Conected DB to frontend to output
+[33m68b663b[m[33m ([m[1;32mmain-backup[m[33m)[m HEAD@{2}: checkout: moving from 68b663bbe78b3a7b5456b993bd67cacceb943bc3 to main
+[33m68b663b[m[33m ([m[1;32mmain-backup[m[33m)[m refs/heads/main-backup@{0}: branch: Created from origin/main
+[33m68b663b[m[33m ([m[1;32mmain-backup[m[33m)[m HEAD@{3}: checkout: moving from main to origin/main
+[33m68b663b[m[33m ([m[1;32mmain-backup[m[33m)[m refs/remotes/origin/main@{1}: update by push
+[33m68b663b[m[33m ([m[1;32mmain-backup[m[33m)[m refs/heads/main@{1}: reset: moving to HEAD~1
+[33m68b663b[m[33m ([m[1;32mmain-backup[m[33m)[m HEAD@{4}: reset: moving to HEAD~1
+[33m4e4378c[m[33m ([m[1;32mfeature/db-connection[m[33m)[m refs/heads/feature/db-connection@{0}: branch: Created from main
+[33m4e4378c[m[33m ([m[1;32mfeature/db-connection[m[33m)[m HEAD@{5}: checkout: moving from Implmented-DB-to-Frontend to main
+[33mbc1dfae[m[33m ([m[1;36mHEAD -> [m[1;32mImplmented-DB-to-Frontend[m[33m, [m[1;31morigin/Implmented-DB-to-Frontend[m[33m)[m refs/remotes/origin/Implmented-DB-to-Frontend@{0}: update by push
+[33mbc1dfae[m[33m ([m[1;36mHEAD -> [m[1;32mImplmented-DB-to-Frontend[m[33m, [m[1;31morigin/Implmented-DB-to-Frontend[m[33m)[m HEAD@{6}: checkout: moving from main to Implmented-DB-to-Frontend
+[33m4e4378c[m[33m ([m[1;32mfeature/db-connection[m[33m)[m refs/heads/main@{2}: reset: moving to HEAD~1
+[33m4e4378c[m[33m ([m[1;32mfeature/db-connection[m[33m)[m HEAD@{7}: reset: moving to HEAD~1
+[33mbc1dfae[m[33m ([m[1;36mHEAD -> [m[1;32mImplmented-DB-to-Frontend[m[33m, [m[1;31morigin/Implmented-DB-to-Frontend[m[33m)[m refs/heads/Implmented-DB-to-Frontend@{0}: branch: Created from main
+[33mbc1dfae[m[33m ([m[1;36mHEAD -> [m[1;32mImplmented-DB-to-Frontend[m[33m, [m[1;31morigin/Implmented-DB-to-Frontend[m[33m)[m refs/remotes/origin/main@{2}: update by push
+[33mbc1dfae[m[33m ([m[1;36mHEAD -> [m[1;32mImplmented-DB-to-Frontend[m[33m, [m[1;31morigin/Implmented-DB-to-Frontend[m[33m)[m refs/heads/main@{3}: commit: Conected DB to frontend to output
+[33mbc1dfae[m[33m ([m[1;36mHEAD -> [m[1;32mImplmented-DB-to-Frontend[m[33m, [m[1;31morigin/Implmented-DB-to-Frontend[m[33m)[m HEAD@{8}: commit: Conected DB to frontend to output
+[33m4e4378c[m[33m ([m[1;32mfeature/db-connection[m[33m)[m refs/heads/main@{4}: clone: from https://github.com/StefanSlaczka/CSC-2920-800-SP26
+[33m4e4378c[m[33m ([m[1;32mfeature/db-connection[m[33m)[m refs/remotes/origin/HEAD@{0}: clone: from https://github.com/StefanSlaczka/CSC-2920-800-SP26
+[33m4e4378c[m[33m ([m[1;32mfeature/db-connection[m[33m)[m HEAD@{9}: clone: from https://github.com/StefanSlaczka/CSC-2920-800-SP26
