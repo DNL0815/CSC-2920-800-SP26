@@ -1,4 +1,5 @@
 
+
 import { Menubar } from 'primereact/menubar';
 
 export default function BasicDemo() {
@@ -23,9 +24,12 @@ export default function BasicDemo() {
         }
     ];
 
+
     return (
         <div className="card">
-            <Menubar model={items} />
+            <Menubar 
+                model={items}
+            />
         </div>
     )
 }

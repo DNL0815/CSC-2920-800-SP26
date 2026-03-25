@@ -1,0 +1,494 @@
+body {
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f4f7f9;
+  color: #333;
+}
+
+.display-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+/* Header Styles */
+.display-header {
+  background: white;
+  border-radius: 12px;
+  padding: 25px 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.display-header h1 {
+  margin: 0 0 15px 0;
+  font-size: 2rem;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+/* Search Summary Section */
+.search-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding-top: 15px;
+  border-top: 2px solid #f0f0f0;
+}
+
+.filters-applied {
+  color: #666;
+  font-size: 0.95rem;
+  background: #f8f9fa;
+  padding: 8px 15px;
+  border-radius: 8px;
+}
+
+.filters-applied strong {
+  color: #333;
+  font-weight: 600;
+}
+
+.result-count {
+  background: #007bff;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.result-count strong {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-right: 2px;
+}
+
+/* Loading State */
+.display-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  background: white;
+  border-radius: 12px;
+  padding: 50px;
+  margin: 20px 0;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #007bff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.display-loading h2 {
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.display-loading p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Error State */
+.display-error {
+  text-align: center;
+  padding: 50px 30px;
+  background: white;
+  border-radius: 12px;
+  margin: 50px auto;
+  max-width: 500px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.display-error h2 {
+  color: #dc3545;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+}
+
+.display-error p {
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.display-error button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.display-error button:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+}
+
+/* No Results State */
+.no-results {
+  text-align: center;
+  padding: 60px 30px;
+  background: white;
+  border-radius: 12px;
+  margin: 20px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.no-results i {
+  font-size: 48px;
+  color: #999;
+  margin-bottom: 20px;
+}
+
+.no-results h3 {
+  color: #666;
+  margin: 20px 0 10px 0;
+  font-size: 1.5rem;
+}
+
+.no-results p {
+  color: #888;
+  margin-bottom: 30px;
+}
+
+.no-results .suggestions {
+  margin-top: 30px;
+  text-align: left;
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.no-results .suggestions p {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.no-results .suggestions ul {
+  margin: 10px 0 0 20px;
+  color: #666;
+}
+
+.no-results .suggestions li {
+  margin: 8px 0;
+  line-height: 1.4;
+}
+
+/* Member Grid - Matching homepage grid */
+.display-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  padding: 10px;
+}
+
+/* Display Card - Styled like homepage cards */
+.display-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.display-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Image */
+.card-image {
+  width: 100%;
+  height: 280px;
+  background-color: #e0e0e0;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.display-card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+/* Card Content */
+.card-content {
+  padding: 18px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.2rem;
+  color: #1a1a1a;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* Badges - Matching homepage */
+.card-badges {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Party colors - Matching homepage */
+.party-democratic,
+.party-democrat {
+  background: #cce5ff;
+  color: #004085;
+}
+
+.party-republican {
+  background: #ffcccc;
+  color: #cc0000;
+}
+
+.party-independent {
+  background: #d4edda;
+  color: #155724;
+}
+
+.chamber-badge {
+  background: #e9ecef;
+  color: #495057;
+}
+
+/* Card Details */
+.card-details {
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.85rem;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: #666;
+}
+
+.detail-value {
+  color: #333;
+  font-weight: 500;
+}
+
+/* Card Footer */
+.card-footer {
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+  margin-top: auto;
+}
+
+.bioguide-id {
+  font-size: 0.7rem;
+  color: #aaa;
+  font-family: monospace;
+  text-align: right;
+  display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+  
+  .display-container {
+    padding: 0;
+  }
+  
+  .display-header {
+    padding: 20px;
+  }
+  
+  .display-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .search-summary {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .filters-applied {
+    width: 100%;
+    font-size: 0.85rem;
+  }
+  
+  .result-count {
+    width: auto;
+  }
+  
+  .display-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 5px;
+  }
+  
+  .card-image {
+    height: 240px;
+  }
+  
+  .card-content h3 {
+    font-size: 1.1rem;
+  }
+  
+  .no-results {
+    padding: 40px 20px;
+    margin: 10px;
+  }
+  
+  .no-results .suggestions {
+    padding: 20px;
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .display-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  .card-image {
+    height: 260px;
+  }
+  
+  .display-header h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .display-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+  
+  .card-image {
+    height: 300px;
+  }
+}
+
+/* Animation for loading state */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.display-card {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Print styles - useful if users want to print search results */
+@media print {
+  body {
+    background: white;
+    padding: 0;
+  }
+  
+  .display-header {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+  
+  .display-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+  
+  .display-card:hover {
+    transform: none;
+  }
+  
+  .card-image img {
+    break-inside: avoid;
+  }
+  
+  .display-error button,
+  .no-results button {
+    display: none;
+  }
+}
+
+/* Scrollbar styling (optional) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
