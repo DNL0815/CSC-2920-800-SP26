@@ -11,7 +11,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/members")
-@CrossOrigin(origins = "http://localhost:5173")
+// So i can output on the front-end
+@CrossOrigin(origins = "*")
 public class MemberController {
 
     private final MemberService memberService;

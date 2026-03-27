@@ -1,0 +1,435 @@
+.search-bar-container {
+  max-width: 1200px;
+  margin: 30px auto 30px auto;
+  padding: 0 20px;
+}
+
+/* Main Search Group */
+.search-input-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background: white;
+  padding: 8px;
+  border-radius: 50px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s ease;
+}
+
+.search-input-group:focus-within {
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.15);
+}
+
+/* Search Input */
+.search-input {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  font-size: 1rem;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: transparent;
+  outline: none;
+  color: #333;
+}
+
+.search-input::placeholder {
+  color: #999;
+}
+
+/* Buttons Common Styles */
+.search-button,
+.filter-toggle,
+.clear-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 40px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+/* Search Button */
+.search-button {
+  background: #007bff;
+  color: white;
+}
+
+.search-button:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+}
+
+.search-button:active {
+  transform: translateY(0);
+}
+
+/* Filter Toggle Button */
+.filter-toggle {
+  background: #f0f0f0;
+  color: #666;
+}
+
+.filter-toggle:hover {
+  background: #e0e0e0;
+  transform: translateY(-1px);
+}
+
+.filter-toggle.active {
+  background: #007bff;
+  color: white;
+}
+
+.filter-toggle.active:hover {
+  background: #0056b3;
+}
+
+/* Clear Button */
+.clear-button {
+  background: #dc3545;
+  color: white;
+}
+
+.clear-button:hover {
+  background: #c82333;
+  transform: translateY(-1px);
+}
+
+.clear-button:active {
+  transform: translateY(0);
+}
+
+/* Filters Panel */
+.filters-panel {
+  margin-top: 15px;
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.filter-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.filter-group {
+  flex: 1;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.filter-group select,
+.filter-group input {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.filter-group select:hover,
+.filter-group input:hover {
+  border-color: #007bff;
+}
+
+.filter-group select:focus,
+.filter-group input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.filter-group input {
+  cursor: text;
+}
+
+.filter-group input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.filter-group input[type="number"]::-webkit-inner-spin-button,
+.filter-group input[type="number"]::-webkit-outer-spin-button {
+  opacity: 0.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .search-bar-container {
+    padding: 0 15px;
+    margin-bottom: 20px;
+  }
+
+  .search-input-group {
+    flex-wrap: wrap;
+    border-radius: 20px;
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .search-input {
+    width: 100%;
+    order: 1;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 10px;
+  }
+
+  .search-button {
+    order: 2;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .filter-toggle {
+    order: 3;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .clear-button {
+    order: 4;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .filters-panel {
+    padding: 15px;
+    margin-top: 10px;
+  }
+
+  .filter-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .filter-group {
+    min-width: auto;
+  }
+
+  .filter-group select,
+  .filter-group input {
+    width: 100%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .search-input-group {
+    padding: 10px;
+  }
+
+  .search-button,
+  .filter-toggle,
+  .clear-button {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+
+  .filter-row {
+    gap: 15px;
+  }
+
+  .filter-group {
+    min-width: 130px;
+  }
+}
+
+/* Animation for filter panel close */
+.filters-panel.closing {
+  animation: slideUp 0.2s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+    display: none;
+  }
+}
+
+/* Icon styling (if using PrimeIcons or Font Awesome) */
+.pi {
+  font-size: 0.9rem;
+}
+
+/* Optional: Add custom icons if not using a library */
+.search-button i,
+.filter-toggle i,
+.clear-button i {
+  pointer-events: none;
+}
+
+/* Active filter indicator */
+.filter-toggle.active i {
+  color: white;
+}
+
+/* Year input specific styling */
+.filter-group input[type="number"]:invalid {
+  border-color: #dc3545;
+}
+
+.filter-group input[type="number"]:invalid:focus {
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+/* Tooltip for year input */
+.filter-group input[type="number"] {
+  position: relative;
+}
+
+.filter-group input[type="number"]:hover::after {
+  content: "Enter a year between 1900-2026";
+  position: absolute;
+  background: #333;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  bottom: 100%;
+  left: 0;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+/* Loading state for search (optional) */
+.search-button.loading {
+  position: relative;
+  color: transparent;
+}
+
+.search-button.loading::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
+  border: 2px solid white;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+  .search-input-group {
+    background: #2c2c2c;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .search-input {
+    color: #e0e0e0;
+  }
+
+  .search-input::placeholder {
+    color: #888;
+  }
+
+  .filter-toggle {
+    background: #3a3a3a;
+    color: #e0e0e0;
+  }
+
+  .filter-toggle:hover {
+    background: #4a4a4a;
+  }
+
+  .filters-panel {
+    background: #2c2c2c;
+  }
+
+  .filter-group label {
+    color: #aaa;
+  }
+
+  .filter-group select,
+  .filter-group input {
+    background: #3a3a3a;
+    border-color: #4a4a4a;
+    color: #e0e0e0;
+  }
+
+  .filter-group select:hover,
+  .filter-group input:hover {
+    border-color: #007bff;
+  }
+
+  .filter-group select option {
+    background: #2c2c2c;
+  }
+}
+
+/* Accessibility improvements */
+.search-button:focus-visible,
+.filter-toggle:focus-visible,
+.clear-button:focus-visible,
+.search-input:focus-visible,
+.filter-group select:focus-visible,
+.filter-group input:focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .search-button,
+  .filter-toggle,
+  .clear-button,
+  .filters-panel {
+    transition: none;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
