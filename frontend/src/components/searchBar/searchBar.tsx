@@ -24,29 +24,80 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
     year: ''
   });
 
-  const chambers = ['All', 'House', 'Senate'];
+  const chambers = ['All', 'House of Representatives', 'Senate'];
   const parties = ['All', 'Democratic', 'Republican', 'Independent'];
   const states = [
-    'All', 'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA',
-    'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA',
-    'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY',
-    'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX',
-    'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'
+    { abbr: 'AL', name: 'Alabama' },
+    { abbr: 'AK', name: 'Alaska' },
+    { abbr: 'AZ', name: 'Arizona' },
+    { abbr: 'AR', name: 'Arkansas' },
+    { abbr: 'CA', name: 'California' },
+    { abbr: 'CO', name: 'Colorado' },
+    { abbr: 'CT', name: 'Connecticut' },
+    { abbr: 'DE', name: 'Delaware' },
+    { abbr: 'FL', name: 'Florida' },
+    { abbr: 'GA', name: 'Georgia' },
+    { abbr: 'HI', name: 'Hawaii' },
+    { abbr: 'ID', name: 'Idaho' },
+    { abbr: 'IL', name: 'Illinois' },
+    { abbr: 'IN', name: 'Indiana' },
+    { abbr: 'IA', name: 'Iowa' },
+    { abbr: 'KS', name: 'Kansas' },
+    { abbr: 'KY', name: 'Kentucky' },
+    { abbr: 'LA', name: 'Louisiana' },
+    { abbr: 'ME', name: 'Maine' },
+    { abbr: 'MD', name: 'Maryland' },
+    { abbr: 'MA', name: 'Massachusetts' },
+    { abbr: 'MI', name: 'Michigan' },
+    { abbr: 'MN', name: 'Minnesota' },
+    { abbr: 'MS', name: 'Mississippi' },
+    { abbr: 'MO', name: 'Missouri' },
+    { abbr: 'MT', name: 'Montana' },
+    { abbr: 'NE', name: 'Nebraska' },
+    { abbr: 'NV', name: 'Nevada' },
+    { abbr: 'NH', name: 'New Hampshire' },
+    { abbr: 'NJ', name: 'New Jersey' },
+    { abbr: 'NM', name: 'New Mexico' },
+    { abbr: 'NY', name: 'New York' },
+    { abbr: 'NC', name: 'North Carolina' },
+    { abbr: 'ND', name: 'North Dakota' },
+    { abbr: 'OH', name: 'Ohio' },
+    { abbr: 'OK', name: 'Oklahoma' },
+    { abbr: 'OR', name: 'Oregon' },
+    { abbr: 'PA', name: 'Pennsylvania' },
+    { abbr: 'RI', name: 'Rhode Island' },
+    { abbr: 'SC', name: 'South Carolina' },
+    { abbr: 'SD', name: 'South Dakota' },
+    { abbr: 'TN', name: 'Tennessee' },
+    { abbr: 'TX', name: 'Texas' },
+    { abbr: 'UT', name: 'Utah' },
+    { abbr: 'VT', name: 'Vermont' },
+    { abbr: 'VA', name: 'Virginia' },
+    { abbr: 'WA', name: 'Washington' },
+    { abbr: 'WV', name: 'West Virginia' },
+    { abbr: 'WI', name: 'Wisconsin' },
+    { abbr: 'WY', name: 'Wyoming' }
   ];
 
   const handleSearch = () => {
-    // Calliong the orginal prop function
-    onSearch(searchTerm, filters);
+    const selectedStateName =
+    states.find(s => s.abbr === filters.state)?.name || '';
 
-    // Buid the URL paramters
+    const updatedFilters = {
+      ...filters,
+      state: selectedStateName
+    };
+
+    // send FULL state name
+    onSearch(searchTerm, updatedFilters);
+
     const params = new URLSearchParams();
     if (searchTerm) params.append('q', searchTerm);
     if (filters.chamber) params.append('chamber', filters.chamber);
     if (filters.party) params.append('party', filters.party);
-    if (filters.state) params.append('state', filters.state);
+    if (selectedStateName) params.append('state', selectedStateName);
     if (filters.year) params.append('year', filters.year);
 
-    // Navigate to the display page
     navigate(`/display?${params.toString()}`);
   };
 
@@ -136,11 +187,13 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
               <label>State:</label>
               <select 
                 value={filters.state} 
-                onChange={(e) => setFilters({...filters, state: e.target.value})}
+                onChange={(e) => setFilters({ ...filters, state: e.target.value })}
               >
+                <option value="">All</option>
+
                 {states.map(state => (
-                  <option key={state} value={state === 'All' ? '' : state}>
-                    {state}
+                  <option key={state.abbr} value={state.abbr}>
+                    {state.abbr} - {state.name}
                   </option>
                 ))}
               </select>
