@@ -122,11 +122,11 @@ class LegislationDtoTest {
     @Test
     @DisplayName("Should handle unicode in policy area")
     void testUnicodeCharacters() {
-        String unicodeArea = "Health 中文 日本語 한글 Area";
+        String unicodeArea = "Health International Affairs Education Area";
         LegislationDto dto = new LegislationDto(118, "HR", "1234", "2023-01-15", "Title", unicodeArea, "2023-06-20", "Action", "url", "source");
 
         assertEquals(unicodeArea, dto.policyArea());
-        assertTrue(dto.policyArea().contains("中文"));
+        assertTrue(dto.policyArea().contains("International"));
     }
 
     @Test

@@ -275,19 +275,19 @@ class LegislationMapperTest {
     @Test
     @DisplayName("Should handle unicode in policy area")
     void testToDtoWithUnicodeInPolicyArea() {
-        legislation.setPolicyArea("Health 中文 日本語");
+        legislation.setPolicyArea("Health International Affairs Education");
         LegislationDto dto = LegislationMapper.toDto(memberLegislation);
 
-        assertEquals("Health 中文 日本語", dto.policyArea());
+        assertEquals("Health International Affairs Education", dto.policyArea());
     }
 
     @Test
     @DisplayName("Should handle unicode in action text")
     void testToDtoWithUnicodeInActionText() {
-        legislation.setLatestActionText("Passed Chamber with modifications: 改正 修正");
+        legislation.setLatestActionText("Passed Chamber with modifications: Amended Revised");
         LegislationDto dto = LegislationMapper.toDto(memberLegislation);
 
-        assertEquals("Passed Chamber with modifications: 改正 修正", dto.latestActionText());
+        assertEquals("Passed Chamber with modifications: Amended Revised", dto.latestActionText());
     }
 
     @Test

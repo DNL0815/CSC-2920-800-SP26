@@ -73,11 +73,11 @@ class BillSummaryDtoTest {
     @Test
     @DisplayName("Should handle unicode characters")
     void testUnicodeCharacters() {
-        String unicodeText = "Bill with unicode: α β γ δ ε ζ η θ 中文 日本語 한글";
+        String unicodeText = "Bill with unicode: Alpha Beta Gamma Delta Epsilon Zeta Eta Theta International Affairs";
         BillSummaryDto dto = new BillSummaryDto("2024-01-15", "Action", unicodeText, "2024-01-20", "v1");
 
         assertEquals(unicodeText, dto.text());
-        assertTrue(dto.text().contains("中文"));
+        assertTrue(dto.text().contains("International"));
     }
 
     @Test

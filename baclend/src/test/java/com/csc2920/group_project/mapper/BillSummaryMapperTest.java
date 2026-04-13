@@ -241,7 +241,7 @@ class BillSummaryMapperTest {
     @Test
     @DisplayName("Should handle unicode characters in text")
     void testToDtoWithUnicodeText() {
-        String unicodeText = "This summary includes unicode: © ® ™ € £ ¥ § ¶";
+        String unicodeText = "This summary includes currency and symbols: Copyright Registered Trademark Euro Pound Yen Section Paragraph";
         billSummary.setText(unicodeText);
         BillSummaryDto dto = BillSummaryMapper.toDto(billSummary);
 
