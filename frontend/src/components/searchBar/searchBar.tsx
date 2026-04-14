@@ -2,15 +2,21 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './searchBar.css';
 
+
+
 interface SearchBarProps {
   onSearch: (searchTerm: string, filters: SearchFilters) => void;
 }
 
-interface SearchFilters {
-  chamber: string;
-  party: string;
-  state: string;
-  year: string;
+// src/components/searchBar/searchBar.tsx
+export interface SearchFilters {
+  chamber?: string;
+  party?: string;
+  // Add any other filters your SearchBar uses
+}
+
+interface SearchBarProps {
+  onSearch: (searchTerm: string, filters: SearchFilters) => void;
 }
 
 const SearchBar = ({ onSearch }: SearchBarProps) => {
@@ -156,8 +162,9 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
         <div className="filters-panel">
           <div className="filter-row">
             <div className="filter-group">
-              <label>Chamber:</label>
+              <label htmlFor="chamber-select">Chamber:</label>
               <select 
+                id="chamber-select"
                 value={filters.chamber} 
                 onChange={(e) => setFilters({...filters, chamber: e.target.value})}
               >
@@ -170,8 +177,9 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
             </div>
 
             <div className="filter-group">
-              <label>Party:</label>
+              <label htmlFor="party-select">Party:</label>
               <select 
+                id="party-select"
                 value={filters.party} 
                 onChange={(e) => setFilters({...filters, party: e.target.value})}
               >
@@ -184,13 +192,13 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
             </div>
 
             <div className="filter-group">
-              <label>State:</label>
+              <label htmlFor="state-select">State:</label>
               <select 
+                id="state-select"
                 value={filters.state} 
                 onChange={(e) => setFilters({ ...filters, state: e.target.value })}
               >
                 <option value="">All</option>
-
                 {states.map(state => (
                   <option key={state.abbr} value={state.abbr}>
                     {state.abbr} - {state.name}
@@ -200,8 +208,9 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
             </div>
 
             <div className="filter-group">
-              <label>Start Year:</label>
+              <label htmlFor="year-input">Start Year:</label>
               <input
+                id="year-input"
                 type="number"
                 placeholder="e.g., 2023"
                 value={filters.year}

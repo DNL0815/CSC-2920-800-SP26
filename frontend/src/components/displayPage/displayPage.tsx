@@ -1,6 +1,5 @@
-// DisplayPage.tsx
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate  } from 'react-router-dom';
 import './displayPage.css';
 
 type Politician = {
@@ -15,6 +14,7 @@ type Politician = {
 };
 
 const DisplayPage = () => {
+  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const [politicians, setPoliticians] = useState<Politician[]>([]);
   const [loading, setLoading] = useState(true);
@@ -159,7 +159,7 @@ const DisplayPage = () => {
       ) : (
         <div className="display-grid">
           {politicians.map((politician) => (
-            <div className="display-card" key={politician.bioguideId}>
+            <div className="display-card" onClick={() => navigate(`/politician/${politician.bioguideId}`)} key={politician.bioguideId}>
               <div className="card-image">
                 <img
                   src={politician.imageUrl || fallbackImage}

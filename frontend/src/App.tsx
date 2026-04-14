@@ -2,26 +2,36 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from "./components/navbar/navbar";
 import HomePage from "./components/homePage/homePage";
 import SearchBar from "./components/searchBar/searchBar";
-import DisplayPage from "./components/displayPage/displayPage"; // Ensure this is imported
+import { SearchFilters } from "./components/searchBar/searchBar";
+import DisplayPage from "./components/displayPage/displayPage";
+import PoliticianDetailPage from './components/politicianDetailPage/politicianDetailPage';
+
+export interface Politician {
+  bioguideId: string;
+  name: string;
+  partyName: string;
+  chamber: string;
+  district: string;
+  imageUrl: string;
+  state: string;
+  startYear: number;
+}
 
 function App() {
-  // This function is still required by your SearchBar props
-  const handleSearch = (searchTerm: string, filters: any) => {
+  // Now this matches exactly what SearchBar expects
+  const handleSearch = (searchTerm: string, filters: SearchFilters) => {
     console.log("Searching for:", searchTerm, filters);
   };
 
   return (
     <BrowserRouter>
       <Navbar />
-      {/* SearchBar stays visible on all pages */}
       <SearchBar onSearch={handleSearch} />
       
       <Routes>
-        {/* The default view (Home) */}
         <Route path="/" element={<HomePage />} />
-        
-        {/* The search results view */}
         <Route path="/display" element={<DisplayPage />} />
+        <Route path="/politician/:id" element={<PoliticianDetailPage/>}/>
       </Routes>
     </BrowserRouter>
   );
