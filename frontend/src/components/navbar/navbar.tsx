@@ -1,12 +1,13 @@
-
-
 import { Menubar } from 'primereact/menubar';
 
 export default function BasicDemo() {
     const items = [
         {
             label: 'Home',
-            icon: 'pi pi-home'
+            icon: 'pi pi-home',
+            command: () => {
+                window.location.href = '/';
+            }
         },
         {
             label: 'Account',

@@ -1,4 +1,4 @@
-import { MemoryRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from "./components/navbar/navbar";
 import HomePage from "./components/homePage/homePage";
 import SearchBar from "./components/searchBar/searchBar";
@@ -24,7 +24,7 @@ function App() {
   };
 
   return (
-    <MemoryRouter>
+    <BrowserRouter>
       <Navbar />
       <SearchBar onSearch={handleSearch} />
       
@@ -33,7 +33,7 @@ function App() {
         <Route path="/display" element={<DisplayPage />} />
         <Route path="/politician/:id" element={<PoliticianDetailPage/>}/>
       </Routes>
-    </MemoryRouter>
+    </BrowserRouter>
   );
 }
 
