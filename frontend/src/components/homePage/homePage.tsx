@@ -1,5 +1,6 @@
 import "./homePage.css";
 import { useEffect, useState } from "react";
+import {useNavigate} from "react-router-dom";
 
 // 1. Types match the JSON keys sent by your Java MemberController
 type Politician = {
@@ -14,6 +15,7 @@ type Politician = {
 };
 
 const HomePage = () => {
+  const navigate = useNavigate();
   const [politicians, setPoliticians] = useState<Politician[]>([]);
   const [loading, setLoading] = useState(true);
   
@@ -65,7 +67,9 @@ const HomePage = () => {
           </div>
         ) : (
           politicians.map((politician) => (
-            <div className="member-card" key={politician.bioguideId}>
+            <div className="member-card" key={politician.bioguideId}
+            onClick={() => navigate(`/politician/${politician.bioguideId}`)}
+            >
               <div className="image-container">
                 <img
                   src={politician.imageUrl || fallbackImage}

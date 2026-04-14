@@ -2,8 +2,9 @@ import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import Navbar from "./components/navbar/navbar";
 import HomePage from "./components/homePage/homePage";
 import SearchBar from "./components/searchBar/searchBar";
-import { SearchFilters } from "./components/searchBar/searchBar"; // Import the type
+import { SearchFilters } from "./components/searchBar/searchBar";
 import DisplayPage from "./components/displayPage/displayPage";
+import PoliticianDetailPage from './components/politicianDetailPage/politicianDetailPage';
 
 export interface Politician {
   bioguideId: string;
@@ -30,6 +31,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/display" element={<DisplayPage />} />
+        <Route path="/politician/:id" element={<PoliticianDetailPage/>}/>
       </Routes>
     </MemoryRouter>
   );
